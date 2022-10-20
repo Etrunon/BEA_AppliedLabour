@@ -9,24 +9,25 @@ use "rcfl_2013_secondo_trim.dta", clear
 * -----------------------------------------------------------------------------------------------
 
 * Variable renames
-rename c28 v01_isPartTimeVoluntary
-rename c27a v02_distributionHourReduction
-rename c29 v03_partTimeReason
-rename c29b v04_if03HasToCareWhatIsReason
-rename rip5 v05_livingAddress5Areas
-rename rip3 v06_livingAddress3Areas
-rename cittad v07_citizenship
-rename etam v08_age
-rename pospro v09_professionalTier
-rename detind v10_employeeContractLenght
-rename prof1 v11_mainJobTitle
-rename lavspe v12_usualJobSite
-rename retric v13_netLastMonthWage
-rename dipaup v14_lastYearJobType
-rename cat12 v15_currentJobAteco12Class
-rename cat12p v16_lastYearAteco12Class
-rename f1 v17_isLookingForAnotherJob
-rename sg24 v18_educationLevel
+rename c28 		v01_isPartTimeVoluntary
+rename c27a		v02_distributionHourReduction
+rename c29 		v03_partTimeReason
+rename c29b		v04_if03HasToCareWhatIsReason
+rename rip5		v05_livingAddress5Areas
+rename rip3		v06_livingAddress3Areas
+rename cittad	v07_citizenship
+rename etam		v08_age
+rename pospro	v09_professionalTier
+rename detind	v10_employeeContractLenght
+rename prof1	v11_mainJobTitle
+rename lavspe	v12_usualJobSite
+rename retric	v13_netLastMonthWage
+rename dipaup	v14_lastYearJobType
+rename cat12	v15_currentJobAteco12Class
+rename cat12p	v16_lastYearAteco12Class
+rename f1 		v17_isLookingForAnotherJob
+rename sg24		v18_educationLevel
+gen 			v19_hasChangedJobSinceLastYear="no"
 
 * Database cut
 keep v01_isPartTimeVoluntary  ///
@@ -184,6 +185,5 @@ replace v18_educationLevel="Laurea di primo livello" if v18_educationLevel=="08"
 replace v18_educationLevel="Laurea specialistica di due anni di secondo livello" if v18_educationLevel=="09"
 replace v18_educationLevel="Laurea di quattro anni o più" if v18_educationLevel=="10"
 
-gen v19_hasChangedJobSinceLastYear="no"
 replace v19_hasChangedJobSinceLastYear="sector switch" if v16_lastYearAteco12Class!=v15_currentJobAteco12Class
 replace v19_hasChangedJobSinceLastYear="new job" if v16_lastYearAteco12Class=="  " & v19_hasChangedJobSinceLastYear=="sector switch"
