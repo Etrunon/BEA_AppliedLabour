@@ -1,10 +1,12 @@
 * Startup
 clear all
-global path "/home/etrunon/Documents/UniBea/12LabourMarket/Project/ISTAT_MFR_RCFL_2013_Secondo_trimestre_IT_DELIMITED/MICRODATI"
-cd "/home/etrunon/Documents/UniBea/12LabourMarket/Project/ISTAT_MFR_RCFL_2013_Secondo_trimestre_IT_DELIMITED/MICRODATI"
+global path "/home/etrunon/Documents/UniBea/12LabourMarket/Project"
+cd "$path"
+
+global sourceDataset "$path/ISTAT_MFR_RCFL_2013_Secondo_trimestre_IT_DELIMITED/MICRODATI/rcfl_2013_secondo_trim.dta"
 
 * Load the dataset
-use "rcfl_2013_secondo_trim.dta", clear
+use "$sourceDataset", clear
 
 * -----------------------------------------------------------------------------------------------
 
@@ -188,3 +190,5 @@ replace v18_educationLevel="Laurea di quattro anni o più" 									if v18_educa
 
 replace v19_hasChangedJobSinceLastYear="sector switch" 	if v16_lastYearAteco12Class!=v15_currentJobAteco12Class
 replace v19_hasChangedJobSinceLastYear="new job" 		if v16_lastYearAteco12Class=="  " & v19_hasChangedJobSinceLastYear=="sector switch"
+
+save "./01SelectedAndCleaned.dta", replace
