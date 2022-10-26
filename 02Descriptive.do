@@ -36,7 +36,6 @@ foreach var in $myVarString{
 	graph hbar (sum) acc if `var'!=" ", 	///
 		over(`var') ///
 		title("Occurrences of `var' without missing values", size(small)) ///
-
 	graph export "`pictures'/Freq_`var'_noMissing.png", replace 
 
 }
@@ -49,4 +48,3 @@ foreach var in $myVar{
 	fre `var'
 	log close
 }
-
