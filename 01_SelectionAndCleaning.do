@@ -1,3 +1,6 @@
+// This file contains the first selection of variables from the original dataset.
+// Here all variables are renamed and switched to string type to be more human readable
+
 * Load the dataset
 use "$db_00_source", clear
 
@@ -17,7 +20,6 @@ rename cat12	v15_currentJobAteco12Class
 rename cat12p	v16_lastYearAteco12Class
 rename f1 		v17_isLookingForAnotherJob
 rename sg24		v18_educationLevel
-gen 			v19_hasChangedJobSinceLastYear="no"
 rename sg11		v20_isGenderFemale
 
 * Database cut
@@ -36,7 +38,6 @@ keep v01_isPartTimeVoluntary  ///
 	 v16_lastYearAteco12Class ///
 	 v17_isLookingForAnotherJob ///
 	 v18_educationLevel ///
-	 v19_hasChangedJobSinceLastYear ///
 	 v20_gender
 
 * Remove all people that do not have a part-time
@@ -153,9 +154,6 @@ replace v18_educationLevel="Laurea di due/tre anni, Scuola diretta a fini specia
 replace v18_educationLevel="Laurea di primo livello" 										if v18_educationLevel=="08"
 replace v18_educationLevel="Laurea specialistica di due anni di secondo livello" 			if v18_educationLevel=="09"
 replace v18_educationLevel="Laurea di quattro anni o più" 									if v18_educationLevel=="10"
-
-replace v19_hasChangedJobSinceLastYear="sector switch" 	if v16_lastYearAteco12Class!=v15_currentJobAteco12Class
-replace v19_hasChangedJobSinceLastYear="new job" 		if v16_lastYearAteco12Class=="  " & v19_hasChangedJobSinceLastYear=="sector switch"
 
 replace v20_isGenderFemale=0	if v20_isGenderFemale==2
 replace v20_isGenderFemale=1	if v20_isGenderFemale==1

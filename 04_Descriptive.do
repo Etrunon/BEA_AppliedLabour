@@ -1,3 +1,5 @@
+// This file is used to generate the first descriptive statistics and plots
+
 * Load the dataset
 use $db_03_firstPass
 

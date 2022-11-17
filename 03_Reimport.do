@@ -1,3 +1,6 @@
+// This file imports again the dataset from the python output into stata
+// It also has to rename again the variables because that gets lost in the way
+
 import delimited $db_02_cleanedCsv, clear
 
 // Rename all the variables because saving and then loading to csv changes the case of their name

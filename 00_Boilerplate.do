@@ -1,3 +1,8 @@
+// This file contain all the shared declaration that are ASSUMED to be executed before any 
+// other file of the project. 
+// 
+// Here there are all paths, common names, variables lists etc.
+
 * Startup
 clear all
 global path "/home/etrunon/Documents/UniBea/12LabourMarket/Project"
@@ -19,6 +24,6 @@ global db_03_firstPass "$resultDb/03_firstPass.dta"
 
 // List of variables
 global myVarInt "v08_age v13_netLastMonthWage v20_isGenderFemale"
-global myVarString "v01_isPartTimeVoluntary v02_distributionHourReduction v06_livingAddress3Areas v07_citizenship  v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel v19_hasChangedJobSinceLastYear"
+global myVarString "v01_isPartTimeVoluntary v02_distributionHourReduction v06_livingAddress3Areas v07_citizenship  v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel"
 // All together
 global myVar $myVarInt $myVarString
