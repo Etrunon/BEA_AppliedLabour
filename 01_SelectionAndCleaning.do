@@ -4,8 +4,6 @@ use "$db_00_source", clear
 * Variable renames
 rename c28 		v01_isPartTimeVoluntary
 rename c27a		v02_distributionHourReduction
-rename c29 		v03_partTimeReason
-rename c29b		v04_if03HasToCareWhatIsReason
 rename rip5		v05_livingAddress5Areas
 rename rip3		v06_livingAddress3Areas
 rename cittad	v07_citizenship
@@ -26,8 +24,6 @@ rename sg11		v20_genderMale
 * Database cut
 keep v01_isPartTimeVoluntary  ///
 	 v02_distributionHourReduction  ///
-	 v03_partTimeReason ///
-	 v04_if03HasToCareWhatIsReason ///
 	 v05_livingAddress5Areas ///
 	 v06_livingAddress3Areas ///
 	 v07_citizenship ///
@@ -63,20 +59,6 @@ replace v02_distributionHourReduction="SomeWeek" 	if v02_distributionHourReducti
 replace v02_distributionHourReduction="SomeMonth" 	if v02_distributionHourReduction=="004"
 replace v02_distributionHourReduction="Other" 		if v02_distributionHourReduction=="996"
 replace v02_distributionHourReduction="Boh" 		if v02_distributionHourReduction=="997"
-
-replace v03_partTimeReason="isStudying" 		if v03_partTimeReason=="001"
-replace v03_partTimeReason="hasHealthProblems" 	if v03_partTimeReason=="002"
-replace v03_partTimeReason="hasToCareOthers" 	if v03_partTimeReason=="003"
-replace v03_partTimeReason="hasSecondJob" 		if v03_partTimeReason=="004"
-replace v03_partTimeReason="otherFamilyIssue" 	if v03_partTimeReason=="005"
-replace v03_partTimeReason="wantsFreeTime" 		if v03_partTimeReason=="006"
-replace v03_partTimeReason="Other" 				if v03_partTimeReason=="996"
-
-replace v04_if03HasToCareWhatIsReason="childServicesAreBad" if v04_if03HasToCareWhatIsReason=="001"
-replace v04_if03HasToCareWhatIsReason="elderServiceAreBad" 	if v04_if03HasToCareWhatIsReason=="002"
-replace v04_if03HasToCareWhatIsReason="everyServiceIsBad" 	if v04_if03HasToCareWhatIsReason=="003"
-replace v04_if03HasToCareWhatIsReason="noOtherReason" 		if v04_if03HasToCareWhatIsReason=="004"
-replace v04_if03HasToCareWhatIsReason="boh" 				if v04_if03HasToCareWhatIsReason=="997"
 
 tostring v05_livingAddress5Areas, replace
 replace v05_livingAddress5Areas="nordOvest" if v05_livingAddress5Areas=="1"

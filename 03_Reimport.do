@@ -3,8 +3,6 @@ import delimited $db_02_cleanedCsv, clear
 // Rename all the variables because saving and then loading to csv changes the case of their name
 rename v01_isparttimevoluntary			v01_isPartTimeVoluntary
 rename v02_distributionhourreduction 	v02_distributionHourReduction
-rename v03_parttimereason 				v03_partTimeReason
-rename v04_if03hastocarewhatisreason 	v04_if03HasToCareWhatIsReason
 rename v05_livingaddress5areas 			v05_livingAddress5Areas
 rename v06_livingaddress3areas 			v06_livingAddress3Areas
 rename v07_citizenship 					v07_citizenship
