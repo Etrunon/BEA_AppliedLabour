@@ -4,7 +4,6 @@ use "$db_00_source", clear
 * Variable renames
 rename c28 		v01_isPartTimeVoluntary
 rename c27a		v02_distributionHourReduction
-rename rip5		v05_livingAddress5Areas
 rename rip3		v06_livingAddress3Areas
 rename cittad	v07_citizenship
 rename etam		v08_age
@@ -19,12 +18,11 @@ rename cat12p	v16_lastYearAteco12Class
 rename f1 		v17_isLookingForAnotherJob
 rename sg24		v18_educationLevel
 gen 			v19_hasChangedJobSinceLastYear="no"
-rename sg11		v20_genderMale
+rename sg11		v20_isGenderFemale
 
 * Database cut
 keep v01_isPartTimeVoluntary  ///
 	 v02_distributionHourReduction  ///
-	 v05_livingAddress5Areas ///
 	 v06_livingAddress3Areas ///
 	 v07_citizenship ///
 	 v08_age ///
@@ -59,13 +57,6 @@ replace v02_distributionHourReduction="SomeWeek" 	if v02_distributionHourReducti
 replace v02_distributionHourReduction="SomeMonth" 	if v02_distributionHourReduction=="004"
 replace v02_distributionHourReduction="Other" 		if v02_distributionHourReduction=="996"
 replace v02_distributionHourReduction="Boh" 		if v02_distributionHourReduction=="997"
-
-tostring v05_livingAddress5Areas, replace
-replace v05_livingAddress5Areas="nordOvest" if v05_livingAddress5Areas=="1"
-replace v05_livingAddress5Areas="nordEst" 	if v05_livingAddress5Areas=="2"
-replace v05_livingAddress5Areas="centro" 	if v05_livingAddress5Areas=="3"
-replace v05_livingAddress5Areas="sud" 		if v05_livingAddress5Areas=="4"
-replace v05_livingAddress5Areas="isole" 	if v05_livingAddress5Areas=="5"
 
 tostring v06_livingAddress3Areas, replace
 replace v06_livingAddress3Areas="nord" 		if v06_livingAddress3Areas=="1"
@@ -166,7 +157,8 @@ replace v18_educationLevel="Laurea di quattro anni o più" 									if v18_educa
 replace v19_hasChangedJobSinceLastYear="sector switch" 	if v16_lastYearAteco12Class!=v15_currentJobAteco12Class
 replace v19_hasChangedJobSinceLastYear="new job" 		if v16_lastYearAteco12Class=="  " & v19_hasChangedJobSinceLastYear=="sector switch"
 
-replace v20_genderMale=0	if v20_genderMale==2
+replace v20_isGenderFemale=0	if v20_isGenderFemale==2
+replace v20_isGenderFemale=1	if v20_isGenderFemale==1
 
 export delimited "$db_01_whitespaceCsv", replace
 

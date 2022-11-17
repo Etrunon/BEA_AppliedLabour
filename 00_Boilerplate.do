@@ -18,7 +18,7 @@ global db_02_cleanedCsv "$resultDb/db_02_cleanedCsv.csv"
 global db_03_firstPass "$resultDb/03_firstPass.dta"
 
 // List of variables
-global myVarInt "v08_age v13_netLastMonthWage"
-global myVarString "v01_isPartTimeVoluntary v02_distributionHourReduction v05_livingAddress5Areas v06_livingAddress3Areas v07_citizenship  v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel v19_hasChangedJobSinceLastYear"
+global myVarInt "v08_age v13_netLastMonthWage v20_isGenderFemale"
+global myVarString "v01_isPartTimeVoluntary v02_distributionHourReduction v06_livingAddress3Areas v07_citizenship  v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel v19_hasChangedJobSinceLastYear"
 // All together
 global myVar $myVarInt $myVarString
