@@ -1,12 +1,5 @@
-* Startup
-clear all
-global path "/home/etrunon/Documents/UniBea/12LabourMarket/Project"
-cd "$path"
-
-global sourceDataset "$path/ISTAT_MFR_RCFL_2013_Secondo_trimestre_IT_DELIMITED/MICRODATI/rcfl_2013_secondo_trim.dta"
-
 * Load the dataset
-use "$sourceDataset", clear
+use "$db_00_source", clear
 
 * -----------------------------------------------------------------------------------------------
 
@@ -30,6 +23,7 @@ rename cat12p	v16_lastYearAteco12Class
 rename f1 		v17_isLookingForAnotherJob
 rename sg24		v18_educationLevel
 gen 			v19_hasChangedJobSinceLastYear="no"
+rename sg11		v20_genderMale
 
 * Database cut
 keep v01_isPartTimeVoluntary  ///
@@ -50,7 +44,8 @@ keep v01_isPartTimeVoluntary  ///
 	 v16_lastYearAteco12Class ///
 	 v17_isLookingForAnotherJob ///
 	 v18_educationLevel ///
-	 v19_hasChangedJobSinceLastYear
+	 v19_hasChangedJobSinceLastYear ///
+	 v20_gender
 
 * Remove all people that do not have a part-time
 keep if v01_isPartTimeVoluntary=="001" | ///
@@ -191,6 +186,7 @@ replace v18_educationLevel="Laurea di quattro anni o più" 									if v18_educa
 replace v19_hasChangedJobSinceLastYear="sector switch" 	if v16_lastYearAteco12Class!=v15_currentJobAteco12Class
 replace v19_hasChangedJobSinceLastYear="new job" 		if v16_lastYearAteco12Class=="  " & v19_hasChangedJobSinceLastYear=="sector switch"
 
+replace v20_genderMale=0	if v20_genderMale==2
 
-export delimited with_funky_spaces.csv, replace
+export delimited $db_01_whitespaceCsv, replace
 

@@ -20,5 +20,6 @@ rename v16_lastyearateco12class 		v16_lastYearAteco12Class
 rename v17_islookingforanotherjob 		v17_isLookingForAnotherJob
 rename v18_educationlevel 				v18_educationLevel
 rename v19_haschangedjobsincelastyear 	v19_hasChangedJobSinceLastYear
+rename v20_gendermale                	v20_genderMale
 
 save "./01SelectedAndCleaned.dta", replace

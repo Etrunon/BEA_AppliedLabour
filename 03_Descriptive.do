@@ -10,7 +10,7 @@ cd "$path"
 
 global myVar "v01_isPartTimeVoluntary v02_distributionHourReduction v03_partTimeReason v04_if03HasToCareWhatIsReason v05_livingAddress5Areas v06_livingAddress3Areas v07_citizenship v08_age v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v13_netLastMonthWage v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel v19_hasChangedJobSinceLastYear"
 global myVarInt "v08_age v13_netLastMonthWage"
-global myVarString "v03_partTimeReason v01_isPartTimeVoluntary v02_distributionHourReduction v04_if03HasToCareWhatIsReason v05_livingAddress5Areas v06_livingAddress3Areas v07_citizenship  v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel v19_hasChangedJobSinceLastYear"
+global myVarString "v01_isPartTimeVoluntary v02_distributionHourReduction v03_partTimeReason v04_if03HasToCareWhatIsReason v05_livingAddress5Areas v06_livingAddress3Areas v07_citizenship  v09_professionalTier v10_employeeContractLenght v11_mainJobTitle v12_usualJobSite v14_lastYearJobType v15_currentJobAteco12Class v16_lastYearAteco12Class v17_isLookingForAnotherJob v18_educationLevel v19_hasChangedJobSinceLastYear"
 
 foreach var in $myVarString{
 	cd "$path"
@@ -35,7 +35,8 @@ foreach var in $myVarString{
 
 	graph hbar (sum) acc if `var'!=" ", 	///
 		over(`var') ///
-		title("Occurrences of `var' without missing values", size(small)) ///
+		title("Occurrences of `var' without missing values", size(small))
+
 	graph export "`pictures'/Freq_`var'_noMissing.png", replace 
 
 }
@@ -46,5 +47,17 @@ use "$sourceDataset", clear
 foreach var in $myVar{
 	log using "$path/results/Fre_`var'.log"
 	fre `var'
+	log close
+}
+
+log using "$path/results/Fre_ALL.log"
+foreach var in $myVar{
+	fre `var'
+}
+log close
+
+foreach var in $myVar{
+	log using "$path/results/Summarize_`var'.log"
+	summarize `var'
 	log close
 }
