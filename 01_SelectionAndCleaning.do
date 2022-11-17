@@ -186,5 +186,5 @@ replace v19_hasChangedJobSinceLastYear="new job" 		if v16_lastYearAteco12Class==
 
 replace v20_genderMale=0	if v20_genderMale==2
 
-export delimited $db_01_whitespaceCsv, replace
+export delimited "$db_01_whitespaceCsv", replace
 

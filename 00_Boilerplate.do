@@ -13,9 +13,9 @@ cd "$path"
 // Each file is created in the script numbered with the number in its name. They are all saved
 // In the result DB folder.
 global db_00_source "$path/ISTAT_MFR_RCFL_2013_Secondo_trimestre_IT_DELIMITED/MICRODATI/rcfl_2013_secondo_trim.dta"
-global db_01_whitespaceCsv "$resultsDb/db_01_whitespaceCsv.csv"
-global db_02_cleanedCsv "$resultsDb/db_02_cleanedCsv.csv"
-global db_03_firstPass "$resultsDb/03_firstPass.dta"
+global db_01_whitespaceCsv "$resultDb/db_01_whitespaceCsv.csv"
+global db_02_cleanedCsv "$resultDb/db_02_cleanedCsv.csv"
+global db_03_firstPass "$resultDb/03_firstPass.dta"
 
 // List of variables
 global myVarInt "v08_age v13_netLastMonthWage"

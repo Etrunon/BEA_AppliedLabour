@@ -3,7 +3,7 @@ use $db_03_firstPass
 
 foreach var in $myVarString{
 	cd "$path"
-	use "$sourceDataset", clear
+	use "$db_03_firstPass", clear
 	cd "$pictures"
 	gen acc = 1
 	
@@ -31,22 +31,22 @@ foreach var in $myVarString{
 }
 
 // Compute and save for each variable the fre[quency] command
-use "$sourceDataset", clear
+use "$db_03_firstPass", clear
 
 foreach var in $myVar{
-	log using "$path/results/Fre_`var'.log"
+	log using "$path/results/Fre_`var'.log", replace
 	fre `var'
 	log close
 }
 
-log using "$path/results/Fre_ALL.log"
+log using "$path/results/Fre_ALL.log", replace
 foreach var in $myVar{
 	fre `var'
 }
 log close
 
 foreach var in $myVar{
-	log using "$path/results/Summarize_`var'.log"
+	log using "$path/results/Summarize_`var'.log", replace
 	summarize `var'
 	log close
 }
