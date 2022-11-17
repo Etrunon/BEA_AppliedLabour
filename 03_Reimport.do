@@ -1,4 +1,4 @@
-import delimited space_removed.csv, clear
+import delimited $db_02_cleanedCsv, clear
 
 // Rename all the variables because saving and then loading to csv changes the case of their name
 rename v01_isparttimevoluntary			v01_isPartTimeVoluntary
@@ -22,4 +22,4 @@ rename v18_educationlevel 				v18_educationLevel
 rename v19_haschangedjobsincelastyear 	v19_hasChangedJobSinceLastYear
 rename v20_gendermale                	v20_genderMale
 
-save "./01SelectedAndCleaned.dta", replace
+save $db_03_firstPass, replace

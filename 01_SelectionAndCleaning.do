@@ -1,8 +1,6 @@
 * Load the dataset
 use "$db_00_source", clear
 
-* -----------------------------------------------------------------------------------------------
-
 * Variable renames
 rename c28 		v01_isPartTimeVoluntary
 rename c27a		v02_distributionHourReduction

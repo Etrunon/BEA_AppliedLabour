@@ -1,6 +1,6 @@
 import csv
 
-with open('db_01_cleanedCsv.csv', 'w', encoding='utf-8', newline='') as csv_da_scrivere:
+with open('db_02_cleanedCsv.csv', 'w', encoding='utf-8', newline='') as csv_da_scrivere:
     scrittore = csv.writer(csv_da_scrivere, delimiter=',')
 
     # Nota come questo 'with' sia dentro quello esterno
