@@ -17,7 +17,6 @@ rename lavspe	v12_usualJobSite
 rename retric	v13_netLastMonthWage
 rename dipaup	v14_lastYearJobType
 rename cat12	v15_currentJobAteco12Class
-rename cat12p	v16_lastYearAteco12Class
 rename f1 		v17_isLookingForAnotherJob
 rename sg24		v18_educationLevel
 rename sg11		v20_isGenderFemale
@@ -35,10 +34,9 @@ keep v01_isPartTimeVoluntary  ///
 	 v13_netLastMonthWage ///
 	 v14_lastYearJobType ///
 	 v15_currentJobAteco12Class ///
-	 v16_lastYearAteco12Class ///
 	 v17_isLookingForAnotherJob ///
 	 v18_educationLevel ///
-	 v20_gender
+	 v20_isGenderFemale
 
 * Remove all people that do not have a part-time
 keep if v01_isPartTimeVoluntary=="001" | ///
@@ -124,20 +122,6 @@ replace v15_currentJobAteco12Class="Attività immobiliari, servizi alle imprese 
 replace v15_currentJobAteco12Class="Amministrazione pubblica e difesa assicurazione sociale obbligatoria" if v15_currentJobAteco12Class=="10"
 replace v15_currentJobAteco12Class="Istruzione, sanità ed altri servizi sociali" if v15_currentJobAteco12Class=="11"
 replace v15_currentJobAteco12Class="Altri servizi collettivi e personali" 		if v15_currentJobAteco12Class=="12"
-
-tostring v16_lastYearAteco12Class, replace
-replace v16_lastYearAteco12Class="Agricoltura, silvicoltura e pesca" 				if v16_lastYearAteco12Class=="01"
-replace v16_lastYearAteco12Class="Industria in senso stretto" 						if v16_lastYearAteco12Class=="02"
-replace v16_lastYearAteco12Class="Costruzioni" 										if v16_lastYearAteco12Class=="03"
-replace v16_lastYearAteco12Class="Commercio" 										if v16_lastYearAteco12Class=="04"
-replace v16_lastYearAteco12Class="Alberghi e ristoranti" 							if v16_lastYearAteco12Class=="05"
-replace v16_lastYearAteco12Class="Trasporto e magazzinaggio" 						if v16_lastYearAteco12Class=="06"
-replace v16_lastYearAteco12Class="Servizi di informazione e comunicazione" 			if v16_lastYearAteco12Class=="07"
-replace v16_lastYearAteco12Class="Attività finanziarie e assicurative" 				if v16_lastYearAteco12Class=="08"
-replace v16_lastYearAteco12Class="Attività immobiliari, servizi alle imprese e altre attività professionali e imprenditoriali" if v16_lastYearAteco12Class=="09"
-replace v16_lastYearAteco12Class="Amministrazione pubblica e difesa assicurazione sociale obbligatoria" if v16_lastYearAteco12Class=="10"
-replace v16_lastYearAteco12Class="Istruzione, sanità ed altri servizi sociali" 		if v16_lastYearAteco12Class=="11"
-replace v16_lastYearAteco12Class="Altri servizi collettivi e personali" 			if v16_lastYearAteco12Class=="12"
 
 tostring v17_isLookingForAnotherJob, replace
 replace v17_isLookingForAnotherJob="yes" 	if v17_isLookingForAnotherJob=="1"
