@@ -139,8 +139,8 @@ replace v18_educationLevel="Laurea di primo livello" 										if v18_educationL
 replace v18_educationLevel="Laurea specialistica di due anni di secondo livello" 			if v18_educationLevel=="09"
 replace v18_educationLevel="Laurea di quattro anni o più" 									if v18_educationLevel=="10"
 
-replace v20_isGenderFemale=0	if v20_isGenderFemale==2
-replace v20_isGenderFemale=1	if v20_isGenderFemale==1
+replace v20_isGenderFemale=0	if v20_isGenderFemale==1
+replace v20_isGenderFemale=1	if v20_isGenderFemale==2
 
 export delimited "$db_01_whitespaceCsv", replace
 
