@@ -5,7 +5,7 @@
 use "$db_00_source", clear
 
 * Variable renames
-rename c28 		v01_isPartTimeVoluntary
+rename c28 		v01_isPartTimeInvoluntary
 rename c27a		v02_distributionHourReduction
 rename rip3		v06_livingAddress3Areas
 rename cittad	v07_citizenship
@@ -22,7 +22,7 @@ rename sg24		v18_educationLevel
 rename sg11		v20_isGenderFemale
 
 * Database cut
-keep v01_isPartTimeVoluntary  ///
+keep v01_isPartTimeInvoluntary  ///
 	 v02_distributionHourReduction  ///
 	 v06_livingAddress3Areas ///
 	 v07_citizenship ///
@@ -39,16 +39,16 @@ keep v01_isPartTimeVoluntary  ///
 	 v20_isGenderFemale
 
 * Remove all people that do not have a part-time
-keep if v01_isPartTimeVoluntary=="001" | ///
-		v01_isPartTimeVoluntary=="002" | ///
-		v01_isPartTimeVoluntary=="003" | ///
-		v01_isPartTimeVoluntary=="997"
+keep if v01_isPartTimeInvoluntary=="001" | ///
+		v01_isPartTimeInvoluntary=="002" | ///
+		v01_isPartTimeInvoluntary=="003" | ///
+		v01_isPartTimeInvoluntary=="997"
 
 * Value renames
-replace v01_isPartTimeVoluntary="Willing" 		if v01_isPartTimeVoluntary=="001"
-replace v01_isPartTimeVoluntary="Unwilling" 	if v01_isPartTimeVoluntary=="002"
-replace v01_isPartTimeVoluntary="Other" 		if v01_isPartTimeVoluntary=="003"
-replace v01_isPartTimeVoluntary="Boh" 			if v01_isPartTimeVoluntary=="997"
+replace v01_isPartTimeInvoluntary="Willing" 		if v01_isPartTimeInvoluntary=="001"
+replace v01_isPartTimeInvoluntary="Unwilling" 	if v01_isPartTimeInvoluntary=="002"
+replace v01_isPartTimeInvoluntary="Other" 		if v01_isPartTimeInvoluntary=="003"
+replace v01_isPartTimeInvoluntary="Boh" 			if v01_isPartTimeInvoluntary=="997"
 
 replace v02_distributionHourReduction="EveryDay" 	if v02_distributionHourReduction=="001"
 replace v02_distributionHourReduction="SomeDay" 	if v02_distributionHourReduction=="002"

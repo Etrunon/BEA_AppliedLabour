@@ -3,18 +3,18 @@
 
 use $db_03_firstPass, clear
 
-// v01_isPartTimeVoluntary
-encode v01_isPartTimeVoluntary, gen(v01Encode)
-drop v01_isPartTimeVoluntary
-rename v01Encode v01_isPartTimeVoluntary
+// v01_isPartTimeInvoluntary
+encode v01_isPartTimeInvoluntary, gen(v01Encode)
+drop v01_isPartTimeInvoluntary
+rename v01Encode v01_isPartTimeInvoluntary
 
-replace v01_isPartTimeVoluntary=1 if v01_isPartTimeVoluntary==2
-replace v01_isPartTimeVoluntary=0 if v01_isPartTimeVoluntary==3
-replace v01_isPartTimeVoluntary=1 if v01_isPartTimeVoluntary==4
+replace v01_isPartTimeInvoluntary=0 if v01_isPartTimeInvoluntary==2
+replace v01_isPartTimeInvoluntary=1 if v01_isPartTimeInvoluntary==3
+replace v01_isPartTimeInvoluntary=0 if v01_isPartTimeInvoluntary==4
 
 label define v01Encode ///
-                0 "Unwilling"  ///
-                1 "Willing"  ///
+                0 "Willing"  ///
+                1 "Unwilling"  ///
                 2 ""  ///
                 3 ""  ///
                 4 "", modify
@@ -119,9 +119,9 @@ label define v11Encode ///
                 8  "", modify ///
 
 // v12_usualJobSite
-encode v12_usualJobSite, gen(v12Encode)
+encode v12_usualJobSite, gen(v12Encoding)
 drop v12_usualJobSite
-rename v12Encode v12_usualJobSite
+rename v12Encoding v12_usualJobSite
 
 replace v12_usualJobSite=0 if v12_usualJobSite==1
 replace v12_usualJobSite=0 if v12_usualJobSite==2
