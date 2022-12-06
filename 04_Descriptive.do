@@ -1,7 +1,7 @@
 // This file is used to generate the first descriptive statistics and plots
 
 * Load the dataset
-use $db_03_firstPass
+use $db_03_firstPass, clear
 
 foreach var in $myVarString{
 	cd "$path"
@@ -14,7 +14,6 @@ foreach var in $myVarString{
 	collapse (sum) acc, by(`var')
 
 	// -----------------------------------------------
-
 	graph hbar (sum) acc, 	///
 			over(`var') ///
 			title("Occurrences of `var'", size(small)) ///
